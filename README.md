@@ -6,11 +6,11 @@ This repository is dedicated to developing the frontend for Innovatrix, the team
 
 ## Developer Details
 
-- **Names:** [Sachin Pal,Yuvraj Singh]
+- **Name:** [Pikachu, Yuvraj Singh]
 - **Role:** Frontend Developer
 - **Team:** Innovatrix
-
+ 
 
 ---
 
--- Request to team mate to contribute here !..
+Feel free to contribute or reach out for collaboration!
