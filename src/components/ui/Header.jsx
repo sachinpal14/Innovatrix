@@ -1,0 +1,156 @@
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import Icon from '../AppIcon';
+import Button from './Button';
+
+const Header = ({ isCollapsed = false }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMoreMenuOpen, setIsMoreMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const primaryNavItems = [
+    { name: 'Dashboard', path: '/unified-dashboard', icon: 'LayoutDashboard' },
+    { name: 'Appointments', path: '/appointment-management', icon: 'Calendar' },
+    { name: 'Health Records', path: '/health-records-vault', icon: 'FileText' },
+    { name: 'Teleconsultation', path: '/teleconsultation-suite', icon: 'Video' },
+  ];
+
+  const secondaryNavItems = [
+    { name: 'Analytics', path: '/analytics-reporting', icon: 'BarChart3' },
+    { name: 'Patient Care', path: '/patient-care-ecosystem', icon: 'Users' },
+  ];
+
+  const isActivePath = (path) => location?.pathname === path;
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const toggleMoreMenu = () => setIsMoreMenuOpen(!isMoreMenuOpen);
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 healthcare-shadow">
+      <div className="flex items-center justify-between h-16 px-6">
+        {/* Logo Section */}
+        <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3">
+            <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-brand-primary to-secondary rounded-lg">
+              <Icon name="Heart" size={24} color="white" strokeWidth={2.5} />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-bold text-text-primary">MedConnect</span>
+              <span className="text-xs text-text-secondary font-medium">Portal</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center space-x-1">
+          {primaryNavItems?.map((item) => (
+            <a
+              key={item?.path}
+              href={item?.path}
+              className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium healthcare-transition ${
+                isActivePath(item?.path)
+                  ? 'bg-primary text-white' :'text-text-secondary hover:text-text-primary hover:bg-muted'
+              }`}
+            >
+              <Icon name={item?.icon} size={18} />
+              <span>{item?.name}</span>
+            </a>
+          ))}
+          
+          {/* More Menu */}
+          <div className="relative">
+            <Button
+              variant="ghost"
+              onClick={toggleMoreMenu}
+              className={`flex items-center space-x-2 px-4 py-2 text-sm font-medium ${
+                secondaryNavItems?.some(item => isActivePath(item?.path))
+                  ? 'bg-muted text-text-primary' :'text-text-secondary hover:text-text-primary'
+              }`}
+            >
+              <Icon name="MoreHorizontal" size={18} />
+              <span>More</span>
+            </Button>
+            
+            {isMoreMenuOpen && (
+              <div className="absolute top-full right-0 mt-2 w-48 bg-white border border-slate-200 rounded-lg healthcare-shadow-lg z-50">
+                {secondaryNavItems?.map((item) => (
+                  <a
+                    key={item?.path}
+                    href={item?.path}
+                    className={`flex items-center space-x-3 px-4 py-3 text-sm font-medium healthcare-transition first:rounded-t-lg last:rounded-b-lg ${
+                      isActivePath(item?.path)
+                        ? 'bg-primary text-white' :'text-text-secondary hover:text-text-primary hover:bg-muted'
+                    }`}
+                    onClick={() => setIsMoreMenuOpen(false)}
+                  >
+                    <Icon name={item?.icon} size={18} />
+                    <span>{item?.name}</span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </nav>
+
+        {/* Right Section */}
+        <div className="flex items-center space-x-4">
+          {/* Notifications */}
+          <Button variant="ghost" className="relative p-2">
+            <Icon name="Bell" size={20} color="var(--color-text-secondary)" />
+            <span className="absolute -top-1 -right-1 w-3 h-3 bg-destructive rounded-full animate-pulse-slow"></span>
+          </Button>
+
+          {/* User Profile */}
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-gradient-to-br from-brand-secondary to-success rounded-full flex items-center justify-center">
+              <Icon name="User" size={16} color="white" />
+            </div>
+            <div className="hidden md:flex flex-col">
+              <span className="text-sm font-medium text-text-primary">Dr. Sarah Chen</span>
+              <span className="text-xs text-text-secondary">Healthcare Provider</span>
+            </div>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <Button
+            variant="ghost"
+            onClick={toggleMobileMenu}
+            className="lg:hidden p-2"
+          >
+            <Icon name={isMobileMenuOpen ? "X" : "Menu"} size={20} />
+          </Button>
+        </div>
+      </div>
+      {/* Mobile Navigation */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-white border-t border-slate-200">
+          <nav className="px-6 py-4 space-y-2">
+            {[...primaryNavItems, ...secondaryNavItems]?.map((item) => (
+              <a
+                key={item?.path}
+                href={item?.path}
+                className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium healthcare-transition ${
+                  isActivePath(item?.path)
+                    ? 'bg-primary text-white' :'text-text-secondary hover:text-text-primary hover:bg-muted'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Icon name={item?.icon} size={18} />
+                <span>{item?.name}</span>
+              </a>
+            ))}
+          </nav>
+        </div>
+      )}
+      {/* Overlay for More Menu */}
+      {isMoreMenuOpen && (
+        <div
+          className="fixed inset-0 z-40"
+          onClick={() => setIsMoreMenuOpen(false)}
+        />
+      )}
+    </header>
+  );
+};
+
+export default Header;
