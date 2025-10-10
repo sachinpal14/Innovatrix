@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes as RouterRoutes, Route } from "react-router-dom";
-import ScrollToTop from "components/ScrollToTop";
-import ErrorBoundary from "components/ErrorBoundary";
-import NotFound from "pages/NotFound";
-import AnalyticsReporting from './pages/analytics-reporting';
-import AppointmentManagement from './pages/appointment-management';
-import UnifiedDashboard from './pages/unified-dashboard';
-import HealthRecordsVault from './pages/health-records-vault';
+import ScrollToTop from "./components/ScrollToTop.jsx";
+import ErrorBoundary from "./components/ErrorBoundary.jsx";
+import NotFound from "./pages/NotFound.jsx";
+import AnalyticsReporting from './pages/analytics-reporting/index.jsx';
+import AppointmentManagement from './pages/appointment-management/index.jsx/';
+import UnifiedDashboard from './pages/unified-dashboard/index.jsx';
+import HealthRecordsVault from './pages/health-records-vault/index.jsx';
 
 const Routes = () => {
   return (
