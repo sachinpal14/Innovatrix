@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../../components/ui/Header';
+import Header from '../../components/ui/Header.jsx';
 import Sidebar from '../../components/ui/Sidebar';
-import WelcomeHeader from './components/WelcomeHeader';
+import WelcomeHeader from './components/WelcomeHeader.jsx';
 import QuickStatsGrid from './components/QuickStatsGrid';
 import QuickActionsPanel from './components/QuickActionsPanel';
 import RecentActivityFeed from './components/RecentActivityFeed';
 import UpcomingSchedule from './components/UpcomingSchedule';
 import SystemStatusPanel from './components/SystemStatusPanel';
 import NotificationCenter from './components/NotificationCenter';
-
+import { useSelector } from 'react-redux';
 const UnifiedDashboard = () => {
-  const [userRole, setUserRole] = useState('patient'); // patient, doctor, admin, government
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const loggedUser = useSelector(state => state.user.loggedUser);
+  const userRole = loggedUser?.role.toLowerCase(); // patient, doctor, admin
+
+ 
   const [currentTime, setCurrentTime] = useState('');
 
   // Mock user data
@@ -26,7 +28,7 @@ const UnifiedDashboard = () => {
   const mockStats = {
     patient: {
       upcomingAppointments: '3',
-      pendingResults: '2', 
+      pendingResults: '2',
       prescriptionsDue: '1',
       healthScore: '85%'
     },
@@ -72,9 +74,7 @@ const UnifiedDashboard = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleRoleChange = (newRole) => {
-    setUserRole(newRole);
-  };
+  
 
   const handleActionClick = (action) => {
     if (action?.id === 'emergency' || action?.id === 'emergency-coord') {
@@ -86,42 +86,44 @@ const UnifiedDashboard = () => {
     setSidebarCollapsed(collapsed);
   };
 
+
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
-      <Sidebar isCollapsed={sidebarCollapsed} onToggle={handleSidebarToggle} />
-      <main className={`pt-16 healthcare-transition ${sidebarCollapsed ? 'ml-16' : 'ml-72'}`}>
+      {/* <Sidebar isCollapsed={sidebarCollapsed} onToggle={handleSidebarToggle} /> */}
+      <main className={`pt-16 healthcare-transition `}>
         <div className="p-6 space-y-6">
           {/* Role Switcher - Demo Purpose */}
           <div className="bg-white p-4 rounded-lg border border-slate-200 healthcare-shadow">
-            <div className="flex items-center justify-between">
+
+            {userRole}
+            {/* <div className="flex items-center justify-between">
               <span className="text-sm font-medium text-text-secondary">Demo: Switch User Role</span>
               <div className="flex space-x-2">
                 {['patient', 'doctor', 'admin', 'government']?.map((role) => (
                   <button
                     key={role}
                     onClick={() => handleRoleChange(role)}
-                    className={`px-3 py-1 text-xs font-medium rounded-full healthcare-transition ${
-                      userRole === role
-                        ? 'bg-primary text-white' :'bg-muted text-text-secondary hover:bg-slate-200'
-                    }`}
+                    className={`px-3 py-1 text-xs font-medium rounded-full healthcare-transition ${userRole === role
+                        ? 'bg-primary text-white' : 'bg-muted text-text-secondary hover:bg-slate-200'
+                      }`}
                   >
                     {role?.charAt(0)?.toUpperCase() + role?.slice(1)}
                   </button>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Welcome Header */}
-          <WelcomeHeader 
+          <WelcomeHeader
             userRole={userRole}
             userName={userData?.[userRole]?.name}
             currentTime={currentTime}
           />
 
           {/* Quick Stats Grid */}
-          <QuickStatsGrid 
+          <QuickStatsGrid
             userRole={userRole}
             stats={mockStats?.[userRole]}
           />
@@ -131,19 +133,19 @@ const UnifiedDashboard = () => {
             {/* Left Column */}
             <div className="lg:col-span-2 space-y-6">
               {/* Quick Actions */}
-              <QuickActionsPanel 
+              <QuickActionsPanel
                 userRole={userRole}
                 onActionClick={handleActionClick}
               />
 
               {/* Recent Activity */}
-              <RecentActivityFeed 
+              <RecentActivityFeed
                 userRole={userRole}
                 activities={[]}
               />
 
               {/* System Status */}
-              <SystemStatusPanel 
+              <SystemStatusPanel
                 userRole={userRole}
                 systemStatus={{}}
               />
@@ -152,13 +154,13 @@ const UnifiedDashboard = () => {
             {/* Right Column */}
             <div className="space-y-6">
               {/* Upcoming Schedule */}
-              <UpcomingSchedule 
+              <UpcomingSchedule
                 userRole={userRole}
                 scheduleItems={[]}
               />
 
               {/* Notification Center */}
-              <NotificationCenter 
+              <NotificationCenter
                 userRole={userRole}
                 notifications={[]}
               />

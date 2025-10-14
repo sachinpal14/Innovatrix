@@ -2,8 +2,17 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Icon from '../AppIcon';
 import Button from './Button';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../redux/userSlice.js';
+
 
 const Header = ({ isCollapsed = false }) => {
+
+  const dispatch = useDispatch();
+
+  const loggedUser = useSelector(state => state.user.loggedUser);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMoreMenuOpen, setIsMoreMenuOpen] = useState(false);
   const location = useLocation();
@@ -13,6 +22,7 @@ const Header = ({ isCollapsed = false }) => {
     { name: 'Appointments', path: '/appointment-management', icon: 'Calendar' },
     { name: 'Health Records', path: '/health-records-vault', icon: 'FileText' },
     { name: 'Teleconsultation', path: '/teleconsultation-suite', icon: 'Video' },
+   
   ];
 
   const secondaryNavItems = [
@@ -44,43 +54,40 @@ const Header = ({ isCollapsed = false }) => {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-1">
           {primaryNavItems?.map((item) => (
-            <a
+            <Link
               key={item?.path}
-              href={item?.path}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium healthcare-transition ${
-                isActivePath(item?.path)
-                  ? 'bg-primary text-white' :'text-text-secondary hover:text-text-primary hover:bg-muted'
-              }`}
+              to={item?.path}
+              className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium healthcare-transition ${isActivePath(item?.path)
+                ? 'bg-primary text-white' : 'text-text-secondary hover:text-text-primary hover:bg-muted'
+                }`}
             >
               <Icon name={item?.icon} size={18} />
               <span>{item?.name}</span>
-            </a>
+            </Link>
           ))}
-          
+
           {/* More Menu */}
           <div className="relative">
             <Button
               variant="ghost"
               onClick={toggleMoreMenu}
-              className={`flex items-center space-x-2 px-4 py-2 text-sm font-medium ${
-                secondaryNavItems?.some(item => isActivePath(item?.path))
-                  ? 'bg-muted text-text-primary' :'text-text-secondary hover:text-text-primary'
-              }`}
+              className={`flex items-center space-x-2 px-4 py-2 text-sm font-medium ${secondaryNavItems?.some(item => isActivePath(item?.path))
+                ? 'bg-muted text-text-primary' : 'text-text-secondary hover:text-text-primary'
+                }`}
             >
               <Icon name="MoreHorizontal" size={18} />
               <span>More</span>
             </Button>
-            
+
             {isMoreMenuOpen && (
               <div className="absolute top-full right-0 mt-2 w-48 bg-white border border-slate-200 rounded-lg healthcare-shadow-lg z-50">
                 {secondaryNavItems?.map((item) => (
                   <a
                     key={item?.path}
                     href={item?.path}
-                    className={`flex items-center space-x-3 px-4 py-3 text-sm font-medium healthcare-transition first:rounded-t-lg last:rounded-b-lg ${
-                      isActivePath(item?.path)
-                        ? 'bg-primary text-white' :'text-text-secondary hover:text-text-primary hover:bg-muted'
-                    }`}
+                    className={`flex items-center space-x-3 px-4 py-3 text-sm font-medium healthcare-transition first:rounded-t-lg last:rounded-b-lg ${isActivePath(item?.path)
+                      ? 'bg-primary text-white' : 'text-text-secondary hover:text-text-primary hover:bg-muted'
+                      }`}
                     onClick={() => setIsMoreMenuOpen(false)}
                   >
                     <Icon name={item?.icon} size={18} />
@@ -90,6 +97,11 @@ const Header = ({ isCollapsed = false }) => {
               </div>
             )}
           </div>
+            
+            <button 
+            onClick={() => dispatch(logout())}
+            className='bg-red-500 rounded-md px-6 py-2 text-slate-600 '>Logout</button>
+
         </nav>
 
         {/* Right Section */}
@@ -106,8 +118,8 @@ const Header = ({ isCollapsed = false }) => {
               <Icon name="User" size={16} color="white" />
             </div>
             <div className="hidden md:flex flex-col">
-              <span className="text-sm font-medium text-text-primary">Dr. Sarah Chen</span>
-              <span className="text-xs text-text-secondary">Healthcare Provider</span>
+              <span className="text-sm font-medium text-text-primary">{loggedUser.role === "Doctor" ? `Dr.${loggedUser.fullname}` : loggedUser.fullname}</span>
+              <span className="text-xs text-text-secondary">{loggedUser.role}</span>
             </div>
           </div>
 
@@ -129,10 +141,9 @@ const Header = ({ isCollapsed = false }) => {
               <a
                 key={item?.path}
                 href={item?.path}
-                className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium healthcare-transition ${
-                  isActivePath(item?.path)
-                    ? 'bg-primary text-white' :'text-text-secondary hover:text-text-primary hover:bg-muted'
-                }`}
+                className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium healthcare-transition ${isActivePath(item?.path)
+                  ? 'bg-primary text-white' : 'text-text-secondary hover:text-text-primary hover:bg-muted'
+                  }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <Icon name={item?.icon} size={18} />

@@ -12,3 +12,8 @@ body {
   font-family: inherit;
   margin: unset;
 }
+
+/* Hide scrollbar but allow scrolling */
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
