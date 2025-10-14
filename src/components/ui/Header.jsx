@@ -98,14 +98,15 @@ const Header = ({ isCollapsed = false }) => {
             )}
           </div>
             
-            <button 
-            onClick={() => dispatch(logout())}
-            className='bg-red-500 rounded-md px-6 py-2 text-slate-600 '>Logout</button>
+           
 
         </nav>
 
         {/* Right Section */}
         <div className="flex items-center space-x-4">
+           <button 
+            onClick={() => dispatch(logout())}
+            className='hidden sm:block sm:bg-red-500 sm:rounded-md sm:px-6 sm:py-2 sm:text-slate-800 hover:bg-red-700 transition-all duration-100 hover:text-white active:scale-75 hover:shadow-lg'>Logout</button>
           {/* Notifications */}
           <Button variant="ghost" className="relative p-2">
             <Icon name="Bell" size={20} color="var(--color-text-secondary)" />
@@ -138,9 +139,9 @@ const Header = ({ isCollapsed = false }) => {
         <div className="lg:hidden bg-white border-t border-slate-200">
           <nav className="px-6 py-4 space-y-2">
             {[...primaryNavItems, ...secondaryNavItems]?.map((item) => (
-              <a
+              <Link
                 key={item?.path}
-                href={item?.path}
+                to={item?.path}
                 className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium healthcare-transition ${isActivePath(item?.path)
                   ? 'bg-primary text-white' : 'text-text-secondary hover:text-text-primary hover:bg-muted'
                   }`}
@@ -148,8 +149,11 @@ const Header = ({ isCollapsed = false }) => {
               >
                 <Icon name={item?.icon} size={18} />
                 <span>{item?.name}</span>
-              </a>
+              </Link>
             ))}
+            <button
+              onClick={() => dispatch(logout())}
+              className='block sm:hidden bg-red-500 rounded-md px-4 py-1 text-sm text-slate-900 hover:bg-red-700 transition-all duration-100 hover:text-white active:scale-75 hover:shadow-lg'>Logout</button>
           </nav>
         </div>
       )}
