@@ -94,10 +94,10 @@ const UnifiedDashboard = () => {
       <main className={`pt-16 healthcare-transition `}>
         <div className="p-6 space-y-6">
           {/* Role Switcher - Demo Purpose */}
-          <div className="bg-white p-4 rounded-lg border border-slate-200 healthcare-shadow">
+          {/* <div className="bg-white p-4 rounded-lg border border-slate-200 healthcare-shadow">
 
             {userRole}
-            {/* <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between">
               <span className="text-sm font-medium text-text-secondary">Demo: Switch User Role</span>
               <div className="flex space-x-2">
                 {['patient', 'doctor', 'admin', 'government']?.map((role) => (
@@ -112,8 +112,8 @@ const UnifiedDashboard = () => {
                   </button>
                 ))}
               </div>
-            </div> */}
-          </div>
+            </div>
+          </div> */}
 
           {/* Welcome Header */}
           <WelcomeHeader
@@ -145,19 +145,19 @@ const UnifiedDashboard = () => {
               />
 
               {/* System Status */}
-              <SystemStatusPanel
+              {/* <SystemStatusPanel
                 userRole={userRole}
                 systemStatus={{}}
-              />
+              /> */}
             </div>
 
             {/* Right Column */}
             <div className="space-y-6">
               {/* Upcoming Schedule */}
-              <UpcomingSchedule
+              {/* <UpcomingSchedule
                 userRole={userRole}
                 scheduleItems={[]}
-              />
+              /> */}
 
               {/* Notification Center */}
               <NotificationCenter
