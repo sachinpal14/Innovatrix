@@ -234,13 +234,11 @@ const AppointmentManagement = () => {
   return (
     <div className="min-h-screen bg-surface">
       <Header />
-      <Sidebar 
+      {/* <Sidebar 
         isCollapsed={sidebarCollapsed} 
         onToggle={setSidebarCollapsed}
-      />
-      <main className={`pt-16 healthcare-transition ${
-        sidebarCollapsed ? 'ml-16' : 'ml-72'
-      }`}>
+      /> */}
+      <main className={`pt-16 healthcare-transition `}>
         <div className="p-6">
           {/* Page Header */}
           <div className="mb-8">

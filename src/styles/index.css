@@ -17,3 +17,7 @@ body {
 body::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
 }
+
+.medicine-details::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}

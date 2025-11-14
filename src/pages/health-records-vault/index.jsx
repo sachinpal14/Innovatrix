@@ -264,13 +264,11 @@ const HealthRecordsVault = () => {
   return (
     <div className="min-h-screen bg-slate-50">
       <Header />
-      <Sidebar 
+      {/* <Sidebar 
         isCollapsed={sidebarCollapsed} 
         onToggle={setSidebarCollapsed} 
-      />
-      <main className={`pt-16 healthcare-transition ${
-        sidebarCollapsed ? 'lg:ml-16' : 'lg:ml-72'
-      }`}>
+      /> */}
+      <main className={`pt-16 healthcare-transition `}>
         <div className="p-6 space-y-6">
           {/* Page Header */}
           <div className="flex items-center justify-between">

@@ -209,8 +209,8 @@ const AnalyticsReporting = () => {
   return (
     <div className="min-h-screen bg-surface">
       <Header />
-      <Sidebar isCollapsed={sidebarCollapsed} onToggle={setSidebarCollapsed} />
-      <main className={`pt-16 healthcare-transition ${sidebarCollapsed ? 'ml-16' : 'ml-72'}`}>
+      {/* <Sidebar isCollapsed={sidebarCollapsed} onToggle={setSidebarCollapsed} /> */}
+      <main className={`pt-16 healthcare-transition`}>
         <div className="p-6 space-y-6">
           {/* Page Header */}
           <div className="bg-white p-6 rounded-lg border border-slate-200 healthcare-shadow">

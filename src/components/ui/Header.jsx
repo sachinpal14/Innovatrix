@@ -21,13 +21,15 @@ const Header = ({ isCollapsed = false }) => {
     { name: 'Dashboard', path: '/unified-dashboard', icon: 'LayoutDashboard' },
     { name: 'Appointments', path: '/appointment-management', icon: 'Calendar' },
     { name: 'Health Records', path: '/health-records-vault', icon: 'FileText' },
-    { name: 'Teleconsultation', path: '/teleconsultation-suite', icon: 'Video' },
+    // { name: 'Teleconsultation', path: '/teleconsultation-suite', icon: 'Video' },
+    { name: 'Analytics', path: '/analytics-reporting', icon: 'BarChart3' },
+    { name: 'Medicine', path: '/medicines', icon: 'Medicine' },
    
   ];
 
   const secondaryNavItems = [
-    { name: 'Analytics', path: '/analytics-reporting', icon: 'BarChart3' },
-    { name: 'Patient Care', path: '/patient-care-ecosystem', icon: 'Users' },
+    
+    // { name: 'Patient Care', path: '/patient-care-ecosystem', icon: 'Users' },
   ];
 
   const isActivePath = (path) => location?.pathname === path;
@@ -67,7 +69,7 @@ const Header = ({ isCollapsed = false }) => {
           ))}
 
           {/* More Menu */}
-          <div className="relative">
+          {/* <div className="relative">
             <Button
               variant="ghost"
               onClick={toggleMoreMenu}
@@ -96,7 +98,7 @@ const Header = ({ isCollapsed = false }) => {
                 ))}
               </div>
             )}
-          </div>
+          </div> */}
             
            
 
