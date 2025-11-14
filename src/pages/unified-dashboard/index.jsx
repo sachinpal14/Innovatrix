@@ -14,16 +14,10 @@ const UnifiedDashboard = () => {
   const userRole = loggedUser?.role.toLowerCase(); // patient, doctor, admin
 
  
+ 
   const [currentTime, setCurrentTime] = useState('');
 
-  // Mock user data
-  const userData = {
-    patient: { name: 'Sarah Johnson', id: 'P-2024-1247' },
-    doctor: { name: 'Sarah Chen', id: 'D-2024-0156' },
-    admin: { name: 'Michael Rodriguez', id: 'A-2024-0089' },
-    government: { name: 'Jennifer Martinez', id: 'G-2024-0034' }
-  };
-
+ 
   // Mock stats data
   const mockStats = {
     patient: {
@@ -118,7 +112,7 @@ const UnifiedDashboard = () => {
           {/* Welcome Header */}
           <WelcomeHeader
             userRole={userRole}
-            userName={userData?.[userRole]?.name}
+            userName={loggedUser?.fullname || 'User'}
             currentTime={currentTime}
           />
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Icon from '../../../components/AppIcon';
 
 const WelcomeHeader = ({ userRole, userName, currentTime }) => {
+  console.log("all things in the welcome header.jsx ",userRole,userName,currentTime)
   const getRoleSpecificGreeting = () => {
     const hour = new Date()?.getHours();
     const timeGreeting = hour < 12 ? 'Good Morning' : hour < 18 ? 'Good Afternoon' : 'Good Evening';
