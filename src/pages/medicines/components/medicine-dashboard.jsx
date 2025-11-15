@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Search, Package, AlertCircle, CheckCircle, XCircle, DollarSign, Calendar, Clock } from 'lucide-react';
 
 import MedicineOrderForm from './medicine-order-form.jsx';
-import { medicinesData } from '../medicinedemo.js';
+import { medicinesData } from '../../../utils/medicinedemo.js';
 
 
 export default function MedicineDashboard() {
@@ -181,7 +181,9 @@ export default function MedicineDashboard() {
                                             <div>
                                                 <label className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Used For</label>
                                                 <p className="mt-1 text-gray-900 bg-green-50 px-4 py-3 rounded-lg">
-                                                    {selectedMedicine.disease}
+                                                    {selectedMedicine.disease.map((d, index) => (
+                                                        <span key={index} className="inline-block mr-2">{d}</span>
+                                                    ))}
                                                 </p>
                                             </div>
 
@@ -253,7 +255,7 @@ export default function MedicineDashboard() {
 
                                                 <button
                                                     onClick={handlePayClick}
-                                                    className='bg-green-700 rounded-lg px-8 py-2 text-xl text-white font-semibold cursor-pointer hover:bg-green-400 hover:text-black transition-all duration-500 active:scale-75'>Pay</button>
+                                                    className='bg-green-700 rounded-lg px-8 py-2 text-xl text-white font-semibold cursor-pointer hover:bg-green-400 hover:text-black transition-all duration-500 active:scale-75'>Order Now</button>
                                             </div>
                                         </div>
                                     </div>

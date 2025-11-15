@@ -14,10 +14,8 @@ body {
 }
 
 /* Hide scrollbar but allow scrolling */
-body::-webkit-scrollbar {
+body::-webkit-scrollbar ,.doctorsShowcase::-webkit-scrollbar, .medicine-details::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
 }
 
-.medicine-details::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
-}
+ 

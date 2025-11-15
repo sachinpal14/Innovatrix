@@ -12,6 +12,7 @@ import Signup from "./pages/Authorization/Signup.jsx";
 import { useSelector } from "react-redux";
 import PrivateRoute from "./pages/Authorization/PrivateRoute.jsx";
 import Medicines from "./pages/medicines/index.jsx";
+import SymptomsSection from "./pages/symptoms-section/index.jsx";
 
 
 
@@ -31,7 +32,7 @@ const RoutesComponent = () => {
           <Route path="/unified-dashboard" element={<PrivateRoute><UnifiedDashboard /></PrivateRoute>} />
           <Route path="/health-records-vault" element={<PrivateRoute><HealthRecordsVault /></PrivateRoute>} />
           <Route path="/medicines" element={<PrivateRoute><Medicines/></PrivateRoute>} />
-
+          <Route path="/symptoms-section" element={<PrivateRoute><SymptomsSection/></PrivateRoute>} />
           {/* 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>

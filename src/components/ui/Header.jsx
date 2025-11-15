@@ -23,11 +23,13 @@ const Header = ({ isCollapsed = false }) => {
     { name: 'Health Records', path: '/health-records-vault', icon: 'FileText' },
     // { name: 'Teleconsultation', path: '/teleconsultation-suite', icon: 'Video' },
     { name: 'Analytics', path: '/analytics-reporting', icon: 'BarChart3' },
-    { name: 'Medicine', path: '/medicines', icon: 'Medicine' },
+  
    
   ];
 
   const secondaryNavItems = [
+      { name: 'Medicine', path: '/medicines', icon: 'Medicine' },
+    { name: 'Symptoms', path: '/symptoms-section', icon: 'Activity' },
     
     // { name: 'Patient Care', path: '/patient-care-ecosystem', icon: 'Users' },
   ];
@@ -69,7 +71,7 @@ const Header = ({ isCollapsed = false }) => {
           ))}
 
           {/* More Menu */}
-          {/* <div className="relative">
+          <div className="relative">
             <Button
               variant="ghost"
               onClick={toggleMoreMenu}
@@ -98,7 +100,7 @@ const Header = ({ isCollapsed = false }) => {
                 ))}
               </div>
             )}
-          </div> */}
+          </div>
             
            
 
