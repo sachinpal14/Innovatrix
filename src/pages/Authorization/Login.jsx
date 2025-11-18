@@ -58,7 +58,7 @@ export default function Login() {
         });
 
         // Navigate to unified dashboard (or default page)
-        navigate('/unified-dashboard');
+        navigate('/home');
     };
 
     return (

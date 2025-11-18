@@ -41,6 +41,7 @@ const RecordCard = ({ record, onView, onShare, onDownload }) => {
   return (
     <div className="bg-white border border-slate-200 rounded-lg p-6 healthcare-shadow hover:healthcare-shadow-lg healthcare-transition">
       <div className="flex items-start justify-between mb-4">
+      
         <div className="flex items-center space-x-3">
           <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${getRecordColor(record?.type)}`}>
             <Icon name={getRecordIcon(record?.type)} size={24} />

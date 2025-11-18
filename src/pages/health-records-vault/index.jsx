@@ -279,7 +279,7 @@ const HealthRecordsVault = () => {
               </p>
             </div>
             
-            <div className="flex items-center space-x-3">
+            {/* <div className="flex items-center space-x-3">
               <Button
                 variant="outline"
                 iconName="Upload"
@@ -295,11 +295,11 @@ const HealthRecordsVault = () => {
               >
                 Scan Document
               </Button>
-            </div>
+            </div> */}
           </div>
 
           {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats?.map((stat, index) => (
               <div key={index} className="bg-white border border-slate-200 rounded-lg p-6 healthcare-shadow">
                 <div className="flex items-center justify-between">
@@ -313,10 +313,10 @@ const HealthRecordsVault = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
 
           {/* Search and Filters */}
-          <SearchFilters
+          {/* <SearchFilters
             searchQuery={searchQuery}
             onSearchChange={setSearchQuery}
             selectedType={selectedType}
@@ -326,7 +326,7 @@ const HealthRecordsVault = () => {
             dateRange={dateRange}
             onDateRangeChange={setDateRange}
             onClearFilters={handleClearFilters}
-          />
+          /> */}
 
           {/* View Toggle and Results */}
           <div className="bg-white border border-slate-200 rounded-lg healthcare-shadow">
@@ -343,23 +343,25 @@ const HealthRecordsVault = () => {
               </div>
               
               <div className="flex items-center space-x-2">
+                
                 <Button
                   variant={activeView === 'grid' ? 'default' : 'ghost'}
                   size="sm"
                   iconName="Grid3X3"
                   onClick={() => setActiveView('grid')}
-                />
-                <Button
+                >Reports</Button>
+                {/* <Button
                   variant={activeView === 'timeline' ? 'default' : 'ghost'}
                   size="sm"
                   iconName="Clock"
                   onClick={() => setActiveView('timeline')}
-                />
-                <Button
+                  
+                >Pescriptions</Button> */}
+                {/* <Button
                   variant="ghost"
                   size="sm"
                   iconName="SlidersHorizontal"
-                />
+                /> */}
               </div>
             </div>
 
@@ -404,11 +406,11 @@ const HealthRecordsVault = () => {
           </div>
 
           {/* Wearable Integration */}
-          <WearableIntegration
+          {/* <WearableIntegration
             wearableData={wearableData}
             onSyncDevice={handleSyncDevice}
             onViewDetails={handleViewWearableDetails}
-          />
+          /> */}
         </div>
       </main>
       {/* Modals */}

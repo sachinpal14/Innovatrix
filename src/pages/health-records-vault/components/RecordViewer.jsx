@@ -57,6 +57,7 @@ const RecordViewer = ({ record, onClose, onShare, onDownload, onPrint }) => {
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-slate-200">
           <div className="flex items-center space-x-3">
+           
             <div className="w-8 h-8 bg-brand-primary/10 rounded-lg flex items-center justify-center">
               <Icon name={getRecordIcon(record?.type)} size={18} className="text-brand-primary" />
             </div>

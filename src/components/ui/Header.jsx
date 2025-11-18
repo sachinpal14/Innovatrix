@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/userSlice.js';
+import { FcAbout } from "react-icons/fc";
+import { AiFillMedicineBox } from "react-icons/ai";
 
 
 const Header = ({ isCollapsed = false }) => {
@@ -18,18 +20,19 @@ const Header = ({ isCollapsed = false }) => {
   const location = useLocation();
 
   const primaryNavItems = [
-    { name: 'home', path: '/home', icon: 'LayoutDashboard' },
+    { name: 'Home', path: '/home', icon: 'LayoutDashboard' },
     { name: 'Appointments', path: '/appointment-management', icon: 'Calendar' },
-    { name: 'Health Records', path: '/health-records-vault', icon: 'FileText' },
+    { name: 'Health Records', path: '/health-records', icon: 'FileText' },
     // { name: 'Teleconsultation', path: '/teleconsultation-suite', icon: 'Video' },
-    { name: 'Analytics', path: '/analytics-reporting', icon: 'BarChart3' },
-  
+    // { name: 'Analytics', path: '/analytics-reportingAbout', icon: 'BarChart3' },
+       { name: 'Medicine', path: '/medicines', icon: <AiFillMedicineBox /> },
+    { name: 'Symptoms', path: '/symptoms-section', icon: 'Activity' },
+    { name: 'About us', path: '/', icon: <FcAbout size={20} /> },
    
   ];
 
   const secondaryNavItems = [
-      { name: 'Medicine', path: '/medicines', icon: 'Medicine' },
-    { name: 'Symptoms', path: '/symptoms-section', icon: 'Activity' },
+   
     
     // { name: 'Patient Care', path: '/patient-care-ecosystem', icon: 'Users' },
   ];
@@ -71,7 +74,7 @@ const Header = ({ isCollapsed = false }) => {
           ))}
 
           {/* More Menu */}
-          <div className="relative">
+          {/* <div className="relative">
             <Button
               variant="ghost"
               onClick={toggleMoreMenu}
@@ -100,7 +103,7 @@ const Header = ({ isCollapsed = false }) => {
                 ))}
               </div>
             )}
-          </div>
+          </div> */}
             
            
 

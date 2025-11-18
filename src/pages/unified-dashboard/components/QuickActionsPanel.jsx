@@ -7,7 +7,7 @@ const QuickActionsPanel = ({ userRole, onActionClick }) => {
     const roleActions = {
       patient: [
         { id: 'book-appointment', label: 'Book Appointment', icon: 'Calendar', variant: 'default', route: '/appointment-management' },
-        { id: 'view-records', label: 'View Health Records', icon: 'FileText', variant: 'outline', route: '/health-records-vault' },
+        { id: 'view-records', label: 'View Health Records', icon: 'FileText', variant: 'outline', route: '/health-records' },
         // { id: 'start-consultation', label: 'Start Teleconsultation', icon: 'Video', variant: 'secondary', route: '/teleconsultation-suite' },
         // { id: 'emergency', label: 'Emergency Alert', icon: 'AlertTriangle', variant: 'destructive', route: '#' }
       ],

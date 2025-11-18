@@ -13,7 +13,7 @@ const QuickStatsGrid = ({ userRole, stats }) => {
       doctor: [
         { label: 'Today\'s Patients', value: stats?.todaysPatients || '12', icon: 'Users', color: 'text-brand-primary', bgColor: 'bg-blue-50' },
         { label: 'Pending Reviews', value: stats?.pendingReviews || '8', icon: 'ClipboardList', color: 'text-warning', bgColor: 'bg-amber-50' },
-        { label: 'Teleconsultations', value: stats?.teleconsultations || '5', icon: 'Video', color: 'text-secondary', bgColor: 'bg-teal-50' },
+        // { label: 'Teleconsultations', value: stats?.teleconsultations || '5', icon: 'Video', color: 'text-secondary', bgColor: 'bg-teal-50' },
         { label: 'Patient Satisfaction', value: stats?.satisfaction || '4.8', icon: 'Star', color: 'text-success', bgColor: 'bg-emerald-50' }
       ],
       admin: [
