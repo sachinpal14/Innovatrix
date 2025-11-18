@@ -53,7 +53,7 @@ export default function Signup() {
         };
 
         dispatch(signup(newUser));
-        navigate('/unified-dashboard'); // ✅ Redirect after signup
+        navigate('/home'); // ✅ Redirect after signup
 
         setFormData({
             fullname: '',
