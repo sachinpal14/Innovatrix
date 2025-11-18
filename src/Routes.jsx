@@ -13,7 +13,8 @@ import { useSelector } from "react-redux";
 import PrivateRoute from "./pages/Authorization/PrivateRoute.jsx";
 import Medicines from "./pages/medicines/index.jsx";
 import SymptomsSection from "./pages/symptoms-section/index.jsx";
-import About from "./pages/about-us/index.jsx";
+import About from "./pages/About/Index.jsx";
+
 
 
 
