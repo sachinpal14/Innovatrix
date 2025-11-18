@@ -125,12 +125,14 @@ const UnifiedDashboard = () => {
           {/* Main Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Left Column */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-6  ">
               {/* Quick Actions */}
+          
               <QuickActionsPanel
                 userRole={userRole}
                 onActionClick={handleActionClick}
-              />
+              /> 
+             
 
               {/* Recent Activity */}
               <RecentActivityFeed
@@ -154,15 +156,15 @@ const UnifiedDashboard = () => {
               /> */}
 
               {/* Notification Center */}
-              <NotificationCenter
+              {/* <NotificationCenter
                 userRole={userRole}
                 notifications={[]}
-              />
+              /> */}
             </div>
           </div>
 
           {/* Emergency Contact Bar */}
-          <div className="bg-gradient-to-r from-destructive to-red-700 p-4 rounded-xl text-white">
+          {/* <div className="bg-gradient-to-r from-destructive to-red-700 p-4 rounded-xl text-white">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
@@ -177,7 +179,7 @@ const UnifiedDashboard = () => {
                 Call Now
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       </main>
     </div>

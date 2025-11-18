@@ -18,7 +18,7 @@ const Header = ({ isCollapsed = false }) => {
   const location = useLocation();
 
   const primaryNavItems = [
-    { name: 'Dashboard', path: '/unified-dashboard', icon: 'LayoutDashboard' },
+    { name: 'home', path: '/home', icon: 'LayoutDashboard' },
     { name: 'Appointments', path: '/appointment-management', icon: 'Calendar' },
     { name: 'Health Records', path: '/health-records-vault', icon: 'FileText' },
     // { name: 'Teleconsultation', path: '/teleconsultation-suite', icon: 'Video' },

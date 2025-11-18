@@ -29,7 +29,7 @@ const RoutesComponent = () => {
           {/* Protected Routes */}
           <Route path="/analytics-reporting" element={<PrivateRoute><AnalyticsReporting /></PrivateRoute>} />
           <Route path="/appointment-management" element={<PrivateRoute><AppointmentManagement /></PrivateRoute>} />
-          <Route path="/unified-dashboard" element={<PrivateRoute><UnifiedDashboard /></PrivateRoute>} />
+          <Route path="/home" element={<PrivateRoute><UnifiedDashboard /></PrivateRoute>} />
           <Route path="/health-records-vault" element={<PrivateRoute><HealthRecordsVault /></PrivateRoute>} />
           <Route path="/medicines" element={<PrivateRoute><Medicines/></PrivateRoute>} />
           <Route path="/symptoms-section" element={<PrivateRoute><SymptomsSection/></PrivateRoute>} />

@@ -8,8 +8,8 @@ const QuickActionsPanel = ({ userRole, onActionClick }) => {
       patient: [
         { id: 'book-appointment', label: 'Book Appointment', icon: 'Calendar', variant: 'default', route: '/appointment-management' },
         { id: 'view-records', label: 'View Health Records', icon: 'FileText', variant: 'outline', route: '/health-records-vault' },
-        { id: 'start-consultation', label: 'Start Teleconsultation', icon: 'Video', variant: 'secondary', route: '/teleconsultation-suite' },
-        { id: 'emergency', label: 'Emergency Alert', icon: 'AlertTriangle', variant: 'destructive', route: '#' }
+        // { id: 'start-consultation', label: 'Start Teleconsultation', icon: 'Video', variant: 'secondary', route: '/teleconsultation-suite' },
+        // { id: 'emergency', label: 'Emergency Alert', icon: 'AlertTriangle', variant: 'destructive', route: '#' }
       ],
       doctor: [
         { id: 'patient-queue', label: 'View Patient Queue', icon: 'Users', variant: 'default', route: '/patient-care-ecosystem' },
@@ -44,7 +44,7 @@ const QuickActionsPanel = ({ userRole, onActionClick }) => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-xl border border-slate-200 healthcare-shadow">
+    <div className="bg-white w-full  p-6 rounded-xl border border-slate-200 healthcare-shadow flex flex-col justify-center">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold text-text-primary">Quick Actions</h2>
         <div className="w-8 h-8 bg-gradient-to-br from-brand-primary to-secondary rounded-lg flex items-center justify-center">

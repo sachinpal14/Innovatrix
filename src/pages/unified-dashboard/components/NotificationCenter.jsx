@@ -78,7 +78,7 @@ const NotificationCenter = ({ userRole, notifications }) => {
   const urgentCount = getNotificationsForRole()?.filter(n => n?.priority === 'urgent' || n?.priority === 'high')?.length;
 
   return (
-    <div className="bg-white p-6 rounded-xl border border-slate-200 healthcare-shadow">
+    <div className="bg-white p-4  rounded-xl border border-slate-200 healthcare-shadow">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-lg font-semibold text-text-primary">Notifications</h2>
         <div className="flex items-center space-x-2">
