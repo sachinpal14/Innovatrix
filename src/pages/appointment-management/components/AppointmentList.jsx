@@ -56,10 +56,11 @@ const AppointmentList = ({ appointments, onReschedule, onCancel, onJoinCall }) =
   };
 
   return (
-    <div className="space-y-4">
+   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 w-full">
+
       {appointments?.length === 0 ? (
-        <div className="bg-white rounded-lg border border-slate-200 healthcare-shadow p-8 text-center">
-          <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
+        <div className="bg-white w-full rounded-lg border border-slate-200 healthcare-shadow p-8 text-center">
+          <div className="w-full  bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
             <Icon name="Calendar" size={32} className="text-text-secondary" />
           </div>
           <h3 className="text-lg font-semibold text-text-primary mb-2">No Appointments Found</h3>
@@ -73,7 +74,7 @@ const AppointmentList = ({ appointments, onReschedule, onCancel, onJoinCall }) =
         appointments?.map((appointment) => (
           <div
             key={appointment?.id}
-            className="bg-white rounded-lg border border-slate-200 healthcare-shadow hover:healthcare-shadow-lg healthcare-transition"
+            className="bg-white rounded-lg max-h-[100%] border border-slate-200 healthcare-shadow hover:healthcare-shadow-lg healthcare-transition"
           >
             <div className="p-6">
               {/* Appointment Header */}
@@ -123,15 +124,7 @@ const AppointmentList = ({ appointments, onReschedule, onCancel, onJoinCall }) =
                   </div>
                 </div>
                 
-                <div className="flex items-center space-x-3 p-3 bg-muted rounded-lg">
-                  <Icon name={getTypeIcon(appointment?.type)} size={18} className="text-brand-primary" />
-                  <div>
-                    <div className="text-sm font-medium text-text-primary capitalize">
-                      {appointment?.type?.replace('-', ' ')}
-                    </div>
-                    <div className="text-xs text-text-secondary">Type</div>
-                  </div>
-                </div>
+              
               </div>
 
               {/* Location/Link Info */}
@@ -143,7 +136,7 @@ const AppointmentList = ({ appointments, onReschedule, onCancel, onJoinCall }) =
               )}
 
               {/* Preparation Instructions */}
-              {appointment?.instructions && (
+              {/* {appointment?.instructions && (
                 <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg mb-4">
                   <div className="flex items-start space-x-2">
                     <Icon name="Info" size={16} className="text-blue-600 mt-0.5" />
@@ -153,21 +146,11 @@ const AppointmentList = ({ appointments, onReschedule, onCancel, onJoinCall }) =
                     </div>
                   </div>
                 </div>
-              )}
+              )} */}
 
               {/* Action Buttons */}
               <div className="flex flex-wrap gap-3">
-                {canJoinCall(appointment?.date, appointment?.time, appointment?.type) && (
-                  <Button
-                    variant="default"
-                    onClick={() => onJoinCall(appointment?.id)}
-                    className="bg-success hover:bg-success/90"
-                  >
-                    <Icon name="Video" size={16} />
-                    <span className="ml-2">Join Call</span>
-                  </Button>
-                )}
-                
+               
                 {isUpcoming(appointment?.date, appointment?.time) && appointment?.status !== 'cancelled' && (
                   <>
                     <Button

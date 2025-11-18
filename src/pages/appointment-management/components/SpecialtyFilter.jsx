@@ -26,7 +26,7 @@ const SpecialtyFilter = ({ selectedSpecialty, onSpecialtyChange, selectedLocatio
   return (
     <div className="space-y-6">
       {/* Specialty Filter */}
-      <div className="bg-white rounded-lg border border-slate-200 healthcare-shadow">
+      {/* <div className="bg-white rounded-lg border border-slate-200 healthcare-shadow">
         <div className="p-4 border-b border-slate-200">
           <h3 className="text-lg font-semibold text-text-primary flex items-center space-x-2">
             <Icon name="Filter" size={20} className="text-primary" />
@@ -68,7 +68,7 @@ const SpecialtyFilter = ({ selectedSpecialty, onSpecialtyChange, selectedLocatio
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
       {/* Location Filter */}
       <div className="bg-white rounded-lg border border-slate-200 healthcare-shadow">
         <div className="p-4 border-b border-slate-200">
@@ -117,7 +117,7 @@ const SpecialtyFilter = ({ selectedSpecialty, onSpecialtyChange, selectedLocatio
         </div>
       </div>
       {/* Quick Filters */}
-      <div className="bg-white rounded-lg border border-slate-200 healthcare-shadow">
+      {/* <div className="bg-white rounded-lg border border-slate-200 healthcare-shadow">
         <div className="p-4 border-b border-slate-200">
           <h3 className="text-lg font-semibold text-text-primary">Quick Filters</h3>
         </div>
@@ -143,7 +143,7 @@ const SpecialtyFilter = ({ selectedSpecialty, onSpecialtyChange, selectedLocatio
             <span className="ml-2">Insurance Accepted</span>
           </Button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

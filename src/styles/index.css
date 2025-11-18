@@ -14,7 +14,7 @@ body {
 }
 
 /* Hide scrollbar but allow scrolling */
-body::-webkit-scrollbar ,.doctorsShowcase::-webkit-scrollbar, .medicine-details::-webkit-scrollbar {
+body::-webkit-scrollbar ,.doctorsShowcase::-webkit-scrollbar, .medicine-details::-webkit-scrollbar,.provider-card-parent::-webkit-scrollbar,.my-appointments::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
 }
 

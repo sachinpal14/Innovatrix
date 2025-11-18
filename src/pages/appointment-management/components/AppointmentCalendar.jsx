@@ -102,7 +102,7 @@ const AppointmentCalendar = ({ selectedDate, onDateSelect, appointments = [] }) 
         {days?.map((date, index) => (
           <div
             key={index}
-            className={`min-h-[80px] p-2 border-r border-b border-slate-100 cursor-pointer healthcare-transition ${
+            className={`min-h-[65px] p-2 border-r border-b border-slate-100 cursor-pointer healthcare-transition ${
               date ? 'hover:bg-muted' : ''
             } ${
               isSelected(date) ? 'bg-primary/10 border-primary' : ''
