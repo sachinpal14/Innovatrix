@@ -376,16 +376,9 @@ const AppointmentManagement = () => {
           )}
 
           {activeTab === 'queue' && (
-            <div className="max-w-4xl">
-              <div className="mb-6">
-                <h2 className="text-xl font-semibold text-text-primary">Live Queue Status</h2>
-                <p className="text-text-secondary mt-1">
-                  Real-time updates on appointment queues and wait times across all departments
-                </p>
-              </div>
-
-              <QueueStatus queueData={mockQueueData} />
-            </div>
+           <div className=' w-full'>
+            <QueueStatus queueData={mockQueueData} />
+           </div>
           )}
         </div>
       </main>
