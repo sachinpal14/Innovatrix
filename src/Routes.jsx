@@ -16,6 +16,7 @@ import SymptomsSection from "./pages/symptoms-section/index.jsx";
 import About from "./pages/about-us/index.jsx";
 
 
+
 const RoutesComponent = () => {
   return (
     <BrowserRouter>
