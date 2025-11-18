@@ -18,9 +18,7 @@ export default function Signup() {
         password: '',
         phone: '',
 
-
     });
-
 
 
     const handleInputChange = (e) => {
@@ -37,6 +35,7 @@ export default function Signup() {
             return setError('Please fill in all required fields!');
         }
 
+        
         if (allUsers.some(u => u.email === formData.email)) {
             return setError('Email already exists!');
         }
